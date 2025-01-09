@@ -2,4 +2,8 @@
 ### 📖프로젝트 소개
 - MySQL과 장고를 연결하여 **원하는 조건에 맞는 독일의 석사 프로그램**을 검색할 수 있는 웹페이지입니다.
 - 원하는 학교를 **즐겨찾기에 추가 및 삭제**하는 것이 가능하고, **새로운 학교를 학교 리스트에 추가하거나 삭제**하는 기능도 갖추고 있습니다.
-  ![파란색 흰색 심플한 마케팅 비즈니스 제안서 프레젠테이션.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/82ec99c6-b300-4c41-8f74-6d2abe0b7817/8066907a-c2ea-447f-aded-b0e509054be8/%ED%8C%8C%EB%9E%80%EC%83%89_%ED%9D%B0%EC%83%89_%EC%8B%AC%ED%94%8C%ED%95%9C_%EB%A7%88%EC%BC%80%ED%8C%85_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4_%EC%A0%9C%EC%95%88%EC%84%9C_%ED%94%84%EB%A0%88%EC%A0%A0%ED%85%8C%EC%9D%B4%EC%85%98.png)
+  <img width="559" alt="image" src="https://github.com/user-attachments/assets/8e405f91-bb6e-4568-a50e-cf4230b75c54" />
+### 🙋🏻‍♀️ 내가 기여한 부분
+- **MySQL과 Django를 연동하여 데이터를 관리**하였습니다.
+- **SQL의 데이터**를 바탕으로, Django에서 **로그인**  기능, **조건에 맞는 학교** 검색 기능, **학교 리스트** 추가 및 삭제 기능, **즐겨찾기** 추가 및 삭제 기능을 구현하였습니다.
+<img width="485" alt="image" src="https://github.com/user-attachments/assets/ddeb86c9-d3be-4464-8649-480727a1ac84" />
