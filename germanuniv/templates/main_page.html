@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Main Page</h2>
+
+    <!-- Search Schools Section -->
+    <h3>Search Schools</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Tuition Fee:</label>
+        <input type="number" name="tuition_min" placeholder="Min">
+        <input type="number" name="tuition_max" placeholder="Max">
+        <label>Semester Fee:</label>
+        <input type="number" name="semester_min" placeholder="Min">
+        <input type="number" name="semester_max" placeholder="Max">
+        <label>Languages:</label>
+        <div>
+            {% for language in languages %}
+                <input type="checkbox" name="language" value="{{ language }}" id="lang_{{ language }}">
+                <label for="lang_{{ language }}">{{ language }}</label>
+            {% endfor %}
+        </div>
+        <label>Language Levels:</label>
+        <div>
+            {% for level in language_levels %}
+                <input type="checkbox" name="level" value="{{ level }}" id="level_{{ level }}">
+                <label for="level_{{ level }}">{{ level }}</label>
+            {% endfor %}
+        </div>
+        <button type="submit" name="search">Search</button>
+    </form>
+
+    <h3>Search Results</h3>
+    {% if searched_schools %}
+        <ul>
+            {% for school in searched_schools %}
+                <li>{{ school.name }} ({{ school.region }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+    <!-- Add/Delete Schools Section -->
+    <h3>Add/Delete School</h3>
+    <form method="POST" action="{% url 'add_school' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="School Name" required>
+        <input type="number" name="tuition_fee" placeholder="Tuition Fee" required>
+        <input type="number" name="semester_fee" placeholder="Semester Fee" required>
+        <input type="text" name="region" placeholder="Region" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for school in schools %}
+            <li>{{ school.name }}
+                <a href="{% url 'delete_school' school.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Favorite Schools Section -->
+    <h3>Favorite Schools</h3>
+    {% if favorites %}
+        <ul>
+            {% for school in favorites %}
+                <li>{{ school.name }} - Tuition Fee: {{ school.tuition_fee }}, Semester Fee: {{ school.semester_fee }}, Region: {{ school.region }}
+                    <a href="{% url 'remove_favorite' school.id %}">Remove</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No favorite schools added yet.</p>
+    {% endif %}
+    <form method="POST" action="{% url 'add_favorite' %}">
+        {% csrf_token %}
+        <label>Add Favorite School:</label>
+        <input type="text" name="school_name" placeholder="School Name" required>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
